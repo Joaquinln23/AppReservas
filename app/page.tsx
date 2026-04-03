@@ -19,18 +19,22 @@ export default function Home() {
         {/* Decorative top line */}
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent)' }} />
 
-        {/* Logo mark */}
-        <div className="flex items-center justify-center gap-2.5 mb-5 anim-fade-up">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-            style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.25)' }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round">
-              <path d="M3 3l18 18M3 21l9-9M15 3l6 6-7.5 7.5"/>
-            </svg>
-          </div>
-          <span className="font-display text-lg font-light tracking-widest" style={{ color: 'var(--gold)', letterSpacing: '0.2em' }}>
-            AGENDAPRO
-          </span>
+      {/* Logo mark */}
+      <div className="flex items-center justify-center gap-2.5 mb-5 anim-fade-up">
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center"
+          style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.25)' }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="9" y="1" width="6" height="22" rx="3" stroke="var(--gold)" strokeWidth="1.5"/>
+            <path d="M9 6h6" stroke="#e74c3c" strokeWidth="2"/>
+            <path d="M9 10h6" stroke="white" strokeWidth="2"/>
+            <path d="M9 14h6" stroke="#e74c3c" strokeWidth="2"/>
+            <path d="M9 18h6" stroke="white" strokeWidth="2"/>
+          </svg>
         </div>
+        <span className="font-display text-lg font-light tracking-widest" style={{ color: 'var(--gold)', letterSpacing: '0.2em' }}>
+          AGENDAPRO
+        </span>
+      </div>
 
         <h1 className="font-display anim-fade-up-1" style={{ fontSize: 'clamp(2rem, 7vw, 3.2rem)', fontWeight: 300, color: 'var(--text)', lineHeight: 1.15, letterSpacing: '-0.01em' }}>
           Sistema de Agenda
