@@ -22,16 +22,13 @@ export async function sendWhatsAppNotification({
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-      target: '56920952959',  // número hardcodeado para probar
-      message: msg,
-      countryCode: '56',      // forzar código de país Chile
-    }),
+        target: barberPhone,
+        message: msg,
+        countryCode: '56',
+      }),
     })
-    const json = await res.json()
-    console.log('Fonnte response:', json)  // 👈 línea nueva
     return { success: res.ok }
-  } catch (err) {
-    console.log('Fonnte error:', err)      // 👈 línea nueva
+  } catch {
     return { success: false }
   }
 }
