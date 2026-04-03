@@ -13,7 +13,7 @@ Sistema de agenda online para barberías con panel de administración, autentica
 | [TypeScript](https://www.typescriptlang.org/) | 5 | Tipado estático |
 | [Supabase](https://supabase.com/) | 2.x | Base de datos, autenticación y backend |
 | [Tailwind CSS](https://tailwindcss.com/) | 3.4 | Estilos utilitarios |
-| [CallMeBot](https://www.callmebot.com/) | — | Notificaciones automáticas por WhatsApp |
+| [Fonnte](https://fonnte.com/) | — | Notificaciones automáticas por WhatsApp |
 
 ---
 
@@ -38,7 +38,7 @@ barber-agenda2/
 ├── lib/
 │   ├── supabase.ts              # Cliente Supabase (browser)
 │   ├── supabase-server.ts       # Cliente Supabase (server)
-│   └── whatsapp.ts              # Integración CallMeBot
+│   └── whatsapp.ts              # Integración Fonnte
 └── middleware.ts                 # Protección de rutas
 ```
 
@@ -49,8 +49,8 @@ barber-agenda2/
 ### 1. Clonar e instalar
 
 ```bash
-git clone https://github.com/tu-usuario/barber-agenda2.git
-cd barber-agenda2
+git clone https://github.com/Joaquinln23/AppReservas.git
+cd AppReservas
 npm install
 ```
 
@@ -61,7 +61,7 @@ Crea `.env.local` en la raíz del proyecto:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://tu-proyecto.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-anon-key
-CALLMEBOT_API_KEY=tu-api-key
+FONNTE_TOKEN=tu-token-fonnte
 BARBER_PHONE=56912345678
 ```
 
@@ -78,14 +78,16 @@ Ve a **SQL Editor** en Supabase y ejecuta el archivo `supabase-schema.sql` inclu
 3. Ingresa email y contraseña
 4. Ese usuario tendrá acceso a `/admin`
 
-### 5. Configurar WhatsApp (CallMeBot)
+### 5. Configurar WhatsApp (Fonnte)
 
-1. Guarda **+34 644 60 49 48** en contactos como "CallMeBot"
-2. Envíale el mensaje: `I allow callmebot to send me messages`
-3. Recibirás tu **API key** por WhatsApp
-4. Agrega esa key a `CALLMEBOT_API_KEY` en `.env.local`
+1. Crea una cuenta en [fonnte.com](https://fonnte.com)
+2. Ve a **Device** → **Add Device**
+3. Ingresa tu número con código de país (ej: `56920952959`)
+4. Escanea el QR con tu WhatsApp
+5. Una vez conectado, clic en **Token** y cópialo
+6. Agrega el token a `FONNTE_TOKEN` en `.env.local`
 
-> ⚠️ El número del barbero debe activar CallMeBot con su propio teléfono.
+> ⚠️ El número del barbero debe ser el mismo que se conecta en Fonnte.
 
 ### 6. Correr en desarrollo
 
@@ -106,7 +108,7 @@ npm run dev
 - 📅 **Reserva de turnos** — Clientes agendan citas por fecha y horario disponible
 - 🔐 **Autenticación** — Login seguro con Supabase Auth + middleware de protección
 - 🛠️ **Panel admin** — Gestión completa de reservas y servicios
-- 📲 **Notificaciones WhatsApp** — Confirmación automática al cliente y al barbero al reservar
+- 📲 **Notificaciones WhatsApp** — Confirmación automática al barbero vía Fonnte al reservar
 - ✅ **Disponibilidad en tiempo real** — Los horarios se actualizan dinámicamente
 
 ---
@@ -151,7 +153,7 @@ Agrega estas variables de entorno en el dashboard de Vercel:
 
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `CALLMEBOT_API_KEY`
+- `FONNTE_TOKEN`
 - `BARBER_PHONE`
 
 ---
